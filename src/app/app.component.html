@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <span>{{ title }}</span>
+    <button mat-button (click)="logout()">Log out</button> 
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+    <span>{{ user }}</span>
+  </mat-toolbar>
+  
+  <div class="container">
+    <div class="inner-container">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+

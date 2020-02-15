@@ -1,0 +1,22 @@
+mat-card {
+    margin-bottom: 12px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mb {
+    margin-bottom: 12px;
+}
+
+.full-width{
+    width: 100%
+}
+
+mat-card div div{
+    display: flex;
+}
+
+.fill-remaining-space{
+    flex: 1 auto;
+}

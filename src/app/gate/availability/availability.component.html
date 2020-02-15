@@ -1,0 +1,40 @@
+<h1 class="mat-headline">New</h1>
+
+<mat-card>
+  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+  
+      <div class="radiobtns">
+          <mat-radio-group formControlName="inOut">
+              <mat-radio-button *ngFor="let direction of directions" [value]="direction.value">
+                  {{direction.viewValue}}
+              </mat-radio-button>
+          </mat-radio-group> 
+  </div>
+
+    <div formArrayName="chemicals"
+  *ngFor="let chemical of ticketForm.get('chemicals').controls; let i = index;">
+  <div [formGroupName]="i">
+    <mat-form-field style="margin-right: 2rem;">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" required>
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{type.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" placeholder="Quantity" formControlName="quantity" required>
+        <span matSuffix>K</span>
+      </mat-form-field>
+  </div>
+
+</div>
+    <div class="mb">
+      <button type="button" mat-mini-fab color="primary" (click)="addItem()">+</button>
+      <button type="button" mat-mini-fab color="primary" (click)="removeItem()">-</button>
+    </div>
+  
+    <button mat-raised-button color="primary">Check Availability</button>
+  </form>
+</mat-card>

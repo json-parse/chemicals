@@ -1,0 +1,10 @@
+<h1 class="mat-headline">
+  Pending storage
+</h1>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngFor="let ticket of entries">
+  <app-tickets
+    [ticketInput]="ticket"
+    (btnClicked)="onBtnClicked($event)">
+  </app-tickets>
+ </div>

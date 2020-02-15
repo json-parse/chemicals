@@ -1,0 +1,18 @@
+.fill-remaining-space{
+    flex: 1 1 auto;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (min-width: 768px) {
+    .inner-container{
+        width: 440px;
+        margin: auto;
+    }
+  }

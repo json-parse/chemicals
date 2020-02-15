@@ -1,0 +1,12 @@
+mat-card {
+    margin-bottom: 32px;
+}
+.radiobtns{
+    margin-bottom: 12px;
+}
+.radiobtns mat-radio-button{
+    margin-right: 12px;
+}
+.mb{
+    margin-bottom: 22px;
+}

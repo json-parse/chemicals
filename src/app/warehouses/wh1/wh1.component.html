@@ -1,0 +1,40 @@
+<p class="mat-headline">
+    Warehouse {{ nr }}
+</p>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card *ngFor="let entry of entries | warehouse: 1">
+    <div class="mb">
+        <div>
+            <span class="mat-body-2">{{entry.inOut | inOut: true }}</span>
+            <span class="fill-remaining-space"></span>
+            <span class="mat-small">{{ entry.date | date:'shortTime' }}</span>
+        </div>
+        <div>{{ entry.quantity }}K of chemical {{ entry.type | type }}</div>
+    </div>
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="primary" class="mb" (click)="completed(entry)">Confirm storage</button>
+<div class="full-width">
+    <p class="mat-small">{{ entry.message }}</p>
+    <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <p>{{ entry.message | msgbtn }} comment</p>
+            </mat-expansion-panel-header>
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit(entry)">
+                <div>
+                    <mat-form-field class="full-width">
+                            <textarea matInput placeholder="Leave a comment" value="{{ entry.message }}" formControlName="msg"></textarea>
+                            <mat-error *ngIf="commentForm.controls.msg.errors?.maxlength">
+                                You exceeded the character limit
+                            </mat-error>
+                            <mat-error *ngIf="commentForm.controls.msg.errors?.minlength">
+                                You need at least 2 characters
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button type="submit">Post</button>
+                </div>
+            </form>
+    </mat-expansion-panel>
+</div>
+</mat-card>

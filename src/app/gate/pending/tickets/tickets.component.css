@@ -1,0 +1,16 @@
+mat-card {
+    margin-bottom: 12px;
+}
+
+mat-card div {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.fill-remaining-space{
+    flex: 1 auto;
+}
+
+.z-front {
+    z-index: 2;
+}

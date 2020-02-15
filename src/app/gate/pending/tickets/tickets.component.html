@@ -1,0 +1,17 @@
+<span matBadge="!" *ngIf="ticketInput.message" class="z-front"></span>
+<mat-card>
+  <div>
+    <span class="mat-body-2">{{ticketInput.inOut | inOut: true }}</span>
+    <span class="fill-remaining-space"></span>
+    <span class="mat-small">{{ ticketInput.date | date:'shortTime' }}</span>
+  </div>
+  <div>
+    <span>{{ ticketInput.quantity }}K of chemical {{ ticketInput.type | type }}</span>
+    <span class="fill-remaining-space"></span>
+    <span class="mat-body-2">{{ ticketInput.inOut | inOut: false }}</span> 
+    <span class="fill-remaining-space"></span>
+    <span>Warehouse {{ ticketInput.warehouse }}</span>
+  </div>
+  <div *ngIf="ticketInput.message" class="mat-small">Comment: {{ ticketInput.message }}</div>
+  <button mat-raised-button color="primary" (click)="onDeleteBtnClick(ticketInput._id)">Delete</button>
+</mat-card>
